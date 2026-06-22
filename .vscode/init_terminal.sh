@@ -6,16 +6,16 @@ fi
 
 # DevPod Check
 echo "Prüfe devpod..."
-if ! ssh -q -o ConnectTimeout=2 quizapp.devpod exit; then
+if ! ssh -q -o ConnectTimeout=2 quiz-app.devpod exit; then
     echo "Starte DevPod..."
     devpod up .
 fi
 
-echo "Verbinde mit python.devpod und aktiviere venv..."
+echo "Verbinde mit devpod und aktiviere venv..."
 
 # Verbindet per SSH, springt in den Container und startet dort eine interaktive 
 # Bash-Shell, die direkt das venv im Container sourct.
-ssh -t quizapp.devpod "bash --init-file <(echo '
+ssh -t quiz-app.devpod "bash --init-file <(echo '
     if [ -f ~/.bashrc ]; then source ~/.bashrc; fi
     if [ -d .venv ]; then 
         source .venv/bin/activate
