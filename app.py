@@ -31,7 +31,7 @@ app.config["SECRET_KEY"] = SECRET_KEY
 
 # async_mode="threading" braucht keine zusätzliche Abhängigkeit (kein eventlet/gevent
 # nötig) und funktioniert zuverlässig zusammen mit threading.Timer für die Zeitlimits.
-socketio = SocketIO(app, async_mode="threading", cors_allowed_origins="*")
+socketio = SocketIO(app, async_mode="threading", cors_allowed_origins="*") 
 
 game_manager = GameManager()
 quiz_loader = QuizLoader()
