@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz-App – Gamemaster</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>🎮 Gamemaster</h1>
+    <div id="fehler-anzeige"></div>
+
+    <!-- SCHRITT 1: Session erstellen -->
+    <div id="schritt-start" class="panel">
+      <p>Erstelle ein neues Spiel. Du bekommst danach einen Code, den deine Spieler eingeben können.</p>
+      <button id="btn-session-erstellen">Spiel erstellen</button>
+    </div>
+
+    <!-- SCHRITT 2: Kategorie & Schwierigkeit wählen -->
+    <div id="schritt-konfiguration" class="panel hidden">
+      <div class="code-display" id="code-anzeige-konfig">------</div>
+      <h3>Kategorie wählen</h3>
+      <label for="select-kategorie">Kategorie (JSON-Datei aus dem Quiz-Ordner)</label>
+      <select id="select-kategorie"></select>
+
+      <label for="select-schwierigkeit">Schwierigkeit</label>
+      <select id="select-schwierigkeit">
+        <option value="leicht">Leicht – kein Zeitlimit</option>
+        <option value="mittel">Mittel – 2 Minuten pro Frage</option>
+        <option value="schwer">Schwer – 30 Sekunden pro Frage</option>
+      </select>
+
+      <p id="fragen-verfuegbar-info" class="badge"></p>
+      <button id="btn-konfiguration-speichern">Weiter zur Lobby</button>
+    </div>
+
+    <!-- SCHRITT 3: Lobby -->
+    <div id="schritt-lobby" class="panel hidden">
+      <div class="code-display" id="code-anzeige-lobby">------</div>
+      <p class="center">Spieler geben diesen Code auf <strong>/player</strong> ein.</p>
+      <p class="center"><span id="lobby-kategorie-info"></span></p>
+
+      <h3>Beigetretene Spieler (<span id="lobby-spieler-anzahl">0</span>)</h3>
+      <ul class="player-list" id="lobby-spieler-liste"></ul>
+
+      <button id="btn-quiz-starten" class="mt" disabled>Quiz starten</button>
+    </div>
+
+    <!-- SCHRITT 4: Aktive Frage -->
+    <div id="schritt-frage" class="panel hidden">
+      <p class="badge" id="frage-fortschritt"></p>
+      <div id="frage-timer" class="timer hidden"></div>
+      <h3 id="frage-text"></h3>
+      <div id="frage-optionen"></div>
+      <p class="center" id="antworten-status">0 / 0 haben geantwortet</p>
+      <button id="btn-frage-beenden">Frage beenden &amp; Lösung zeigen</button>
+    </div>
+
+    <!-- SCHRITT 5: Ergebnis der Frage -->
+    <div id="schritt-ergebnis" class="panel hidden">
+      <h3>Ergebnis</h3>
+      <p id="ergebnis-loesung"></p>
+      <p id="ergebnis-erklaerung"></p>
+      <h3>Rangliste</h3>
+      <div id="ergebnis-rangliste"></div>
+      <button id="btn-naechste-frage" class="mt">Nächste Frage</button>
+      <button id="btn-quiz-beenden" class="secondary">Quiz beenden</button>
+    </div>
+
+    <!-- SCHRITT 6: Quiz beendet -->
+    <div id="schritt-ende" class="panel hidden">
+      <h3>🏁 Quiz beendet – Endstand</h3>
+      <div id="ende-rangliste"></div>
+      <a href="/gamemaster"><button class="mt">Neues Spiel erstellen</button></a>
+    </div>
+  </div>
+
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+  <script src="{{ url_for('static', filename='js/gamemaster.js') }}"></script>
+</body>
+</html>

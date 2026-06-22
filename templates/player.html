@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz-App – Spieler</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>🙋 Spieler</h1>
+    <div id="fehler-anzeige"></div>
+
+    <!-- SCHRITT 1: Beitreten -->
+    <div id="schritt-beitritt" class="panel">
+      <label for="input-code">Spiel-Code</label>
+      <input type="text" id="input-code" maxlength="8" placeholder="z.B. AB3K9" autocapitalize="characters">
+
+      <label for="input-name">Dein Name</label>
+      <input type="text" id="input-name" maxlength="20" placeholder="Dein Anzeigename">
+
+      <button id="btn-beitreten">Beitreten</button>
+    </div>
+
+    <!-- SCHRITT 2: Lobby / Warten -->
+    <div id="schritt-lobby" class="panel hidden">
+      <h3>Du bist drin, <span id="lobby-eigener-name"></span> 👋</h3>
+      <p>Warte, bis der Gamemaster das Quiz startet …</p>
+      <h3>Mitspieler (<span id="lobby-spieler-anzahl">0</span>)</h3>
+      <ul class="player-list" id="lobby-spieler-liste"></ul>
+    </div>
+
+    <!-- SCHRITT 3: Aktive Frage -->
+    <div id="schritt-frage" class="panel hidden">
+      <p class="badge" id="frage-fortschritt"></p>
+      <div id="frage-timer" class="timer hidden"></div>
+      <h3 id="frage-text"></h3>
+      <div id="frage-optionen"></div>
+      <p class="center" id="antwort-gesendet-info"></p>
+    </div>
+
+    <!-- SCHRITT 4: Ergebnis -->
+    <div id="schritt-ergebnis" class="panel hidden">
+      <h3 id="ergebnis-titel"></h3>
+      <p id="ergebnis-loesung"></p>
+      <p id="ergebnis-erklaerung"></p>
+      <h3>Rangliste</h3>
+      <div id="ergebnis-rangliste"></div>
+      <p class="center muted">Warte auf die nächste Frage …</p>
+    </div>
+
+    <!-- SCHRITT 5: Quiz beendet -->
+    <div id="schritt-ende" class="panel hidden">
+      <h3>🏁 Quiz beendet – Endstand</h3>
+      <div id="ende-rangliste"></div>
+      <a href="/player"><button class="mt">Neuem Spiel beitreten</button></a>
+    </div>
+  </div>
+
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+  <script src="{{ url_for('static', filename='js/player.js') }}"></script>
+</body>
+</html>

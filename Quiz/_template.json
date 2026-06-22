@@ -1,0 +1,62 @@
+{
+  "_hinweis": "Dies ist eine TEMPLATE-Datei. Kopiere sie, benenne die Kopie nach deiner Kategorie (z.B. 'geografie.json') und fülle 'fragen' mit echten Fragen. Diese Datei selbst beginnt mit '_' und wird vom Server ABSICHTLICH NICHT als Kategorie geladen.",
+
+  "kategorie": "Name der Kategorie (wird im Auswahlmenü angezeigt)",
+  "beschreibung": "Kurze Beschreibung, worum es in dieser Kategorie geht.",
+
+  "fragen": [
+    {
+      "id": "q1",
+      "typ": "boolean",
+      "schwierigkeit": "leicht",
+      "frage": "Beispiel-Frage als Wahr/Falsch-Aussage?",
+      "antwort_richtig": true,
+      "erklaerung": "Optionale Erklärung, die nach Beantwortung angezeigt wird (kann auch null sein)."
+    },
+    {
+      "id": "q2",
+      "typ": "multiple_choice",
+      "schwierigkeit": "mittel",
+      "frage": "Beispiel-Frage mit 4 Auswahlmöglichkeiten?",
+      "optionen": [
+        "Antwortoption A",
+        "Antwortoption B",
+        "Antwortoption C",
+        "Antwortoption D"
+      ],
+      "antwort_richtig_index": 0,
+      "erklaerung": "Optionale Erklärung zur richtigen Antwort (Index 0 = Option A)."
+    },
+    {
+      "id": "q3",
+      "typ": "multiple_choice",
+      "schwierigkeit": "schwer",
+      "frage": "Eine weitere Beispiel-Frage mit 4 Möglichkeiten?",
+      "optionen": [
+        "Antwortoption A",
+        "Antwortoption B",
+        "Antwortoption C",
+        "Antwortoption D"
+      ],
+      "antwort_richtig_index": 2,
+      "erklaerung": null
+    },
+    {
+      "id": "q4",
+      "typ": "boolean",
+      "schwierigkeit": "schwer",
+      "frage": "Eine schwere Wahr/Falsch-Beispielfrage?",
+      "antwort_richtig": false,
+      "erklaerung": null
+    }
+  ],
+
+  "_regeln": {
+    "typ": "Muss 'boolean' oder 'multiple_choice' sein.",
+    "schwierigkeit": "Muss 'leicht', 'mittel' oder 'schwer' sein. Bestimmt das Zeitlimit (leicht=kein Limit, mittel=120s, schwer=30s) - das Zeitlimit selbst wird zentral im Server konfiguriert, nicht pro Frage.",
+    "boolean_frage": "Benötigt das Feld 'antwort_richtig' (true/false). KEIN 'optionen'-Feld.",
+    "multiple_choice_frage": "Benötigt 'optionen' (Liste mit GENAU 4 Einträgen) und 'antwort_richtig_index' (0-3). KEIN 'antwort_richtig'-Feld.",
+    "id": "Muss innerhalb der Datei eindeutig sein.",
+    "erklaerung": "Optional, darf null sein oder weggelassen werden."
+  }
+}
