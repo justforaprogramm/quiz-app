@@ -1,0 +1,16 @@
+{
+    "terminal.integrated.profiles.linux": {
+        "DevPod-Terminal": {
+            "path": "/bin/bash",
+            "args": [
+                "--init-file",
+                "${workspaceFolder}/.vscode/init_terminal.sh"
+            ]
+        }
+    },
+    "terminal.integrated.defaultProfile.linux": "DevPod-Terminal",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true
+    }
+}
