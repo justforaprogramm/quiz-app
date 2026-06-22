@@ -3,7 +3,8 @@ import { Hono } from 'hono'
 const app = new Hono()
 
 app.get('/', (c) => {
-  return c.json({ status: 'online', project: 'quiz-app-ts' })
+  // Hier das "-ts" entfernen oder den Namen anpassen
+  return c.json({ status: 'online', project: 'quiz-app' })
 })
 
 app.get('/quiz', (c) => {
