@@ -1,6 +1,5 @@
 {
   "name": "quiz-app",
-  "main": "src/index.ts",
-  "compatibility_date": "2026-06-22",
-  "compatibility_flags": []
+  "pages_build_output_dir": "./public",
+  "compatibility_date": "2026-06-22"
 }

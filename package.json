@@ -1,15 +1,10 @@
 {
   "name": "quiz-app",
   "version": "1.0.0",
-  "type": "module",
   "scripts": {
-    "deploy": "wrangler deploy"
-  },
-  "dependencies": {
-    "hono": "^4.4.0"
+    "build": "echo 'Static assets ready'"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20240529.0",
     "wrangler": "^4.64.0"
   }
 }
