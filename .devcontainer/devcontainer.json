@@ -1,5 +1,5 @@
 {
-  "name": "quizapp Development",
+  "name": "quiz-app Development",
   "build": {
     "dockerfile": "Dockerfile"
   },
